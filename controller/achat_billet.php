@@ -15,8 +15,9 @@ function generate_vars($section, &$vars) {
     foreach ($reservations as $reservation) {
         $achat = new Achat(); 
         $achat->utilisateur = $reservation->utilisateur;
-        $achat->match_id = $reservation->match_id;
-        $achat->qte = $reservation->qte;
+        $achat->id_match = $reservation->id_match;
+        $achat->siege = $reservation->siege;
+        $achat->rangee = $reservation->rangee;
         $achat->date = 'now()';
         $achat->save();
 

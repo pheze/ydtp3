@@ -10,7 +10,8 @@
     <tr>
         <td>Effacer</td>
         <td>Description</td>
-        <td>Quantite</td>
+        <td>Siege</td>
+	<td>Rangée</td>
         <td>Date</td>
         <td>Aréna</td>
     </tr>
@@ -26,7 +27,8 @@
         </form>
       </td>
       <td>~~$x->get_match()->description~</td>
-      <td>~~$x->qte~</td> 
+      <td>~~$x->siege~</td> 
+      <td>~~$x->rangee~</td> 
       <td>~~$x->get_match()->date~</td> 
       <td>~~$x->get_match()->getArena()->nom~</td>
     </tr>

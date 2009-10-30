@@ -12,7 +12,6 @@ function generate_vars($section, &$vars) {
         $reservation = Reservation::get($_GET['reservation_id']);
         if ($reservation != null) {
             $match = $reservation->get_match();
-            $match->places += $reservation->qte;
             $match->save();
             $reservation->delete();
         }
@@ -20,7 +19,6 @@ function generate_vars($section, &$vars) {
         $reservations = Reservation::filter_by_user($vars['userid']);
         foreach ($reservations as $reservation) {
             $match = $reservation->get_match();
-            $match->places += $reservation->qte;
             $match->save();
             $reservation->delete();
         }

@@ -6,7 +6,7 @@
 // $dbpass = '3NfU5PF4';
 
 $dbname = 'canadiens';
-$dbhost = '127.0.0.1';
+$dbhost = 'localhost';
 $dbuser = 'pheze';
 $dbpass = '123456';
 

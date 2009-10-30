@@ -12,13 +12,15 @@ Vous n'êtes pas administrateur.
     ~ $counter = 0; ~
        <tr>
           <th>nom</th>
-          <th>sieges</th>
+          <th>largeur</th>
+          <th>profondeur</th>
           <th>effacer</th>
         </tr>
      ~ foreach ($arenas as $arena) { ~
        <tr>
             <td><input type="text" name="nom~~$counter~" value="~~$arena->nom~" /></td>
-            <td><input type="text" size="5" name="sieges~~$counter~" value="~~$arena->sieges~" /></td>
+            <td><input type="text" size="5" name="largeur~~$counter~" value="~~$arena->largeur~" /></td>
+            <td><input type="text" size="5" name="profondeur~~$counter~" value="~~$arena->profondeur~" /></td>
             <td><input type="checkbox" name="delete~~$counter~" /></td>
         </tr>
 
@@ -29,7 +31,8 @@ Vous n'êtes pas administrateur.
       <tr>
            <input type="hidden" name="section" value="admin_arenas" />
            <td><input type="text" name="nom-nouveau" value="" /></td>
-           <td><input type="text" name="sieges-nouveau" size="5" value="" /></td>
+           <td><input type="text" name="largeur-nouveau" size="5" value="" /></td>
+           <td><input type="text" name="profondeur-nouveau" size="5" value="" /></td>
            <td></td>
        </tr>
     </table>
@@ -38,3 +41,4 @@ Vous n'êtes pas administrateur.
     </form>
 ~ } ~
 ~[/content]~
+

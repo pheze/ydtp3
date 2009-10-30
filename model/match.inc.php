@@ -12,8 +12,6 @@ class Match extends Model {
 	
 	public $prix;
 	
-	public $places;
-
     public static function get($id) {
 		return parent::get(__CLASS__, $id);
 	}

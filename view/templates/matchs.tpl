@@ -18,10 +18,12 @@
         <td>
             <a href="index.php?section=match_detail&id=~~$x->id~">~~$x->description~</a>
         </td>
+
+~ $arena = $x->getArena(); ~
         <td>~~$x->date~</td>
-        <td>~~$x->getArena()->nom~</td>
+        <td>~~$arena->nom~</td>
         <td>~~$x->prix~</td>
-        <td>~~$x->places~</td>
+        <td>~~(int)$arena->largeur * (int)$arena->profondeur~</td>
     </tr>
     ~$color_counter++;~
 ~ } ~

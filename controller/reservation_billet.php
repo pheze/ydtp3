@@ -29,8 +29,7 @@ function generate_vars($section, &$vars) {
 
     $reservation = new Reservation();
     $reservation->utilisateur = $vars['userid'];
-    $reservation->match_id = $match->id;
-    $reservation->qte = $nombre_billet;
+    $reservation->match_id = $id_match;
     $reservation->expiration = 'now()';
     $reservation->save();
 

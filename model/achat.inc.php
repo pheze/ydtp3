@@ -6,14 +6,16 @@ require_once 'match.inc.php';
 class Achat extends Model {
     public $utilisateur;
 
-	public $match_id;
-	
-	public $qte;
+	public $id_match;
 	
 	public $date;
 
+	public $siege;
+
+	public $rangee;
+
     public function get_match() {
-        return Match::get($this->match_id);
+        return Match::get($this->id_match);
     }
 
     public static function get($id) {

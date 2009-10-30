@@ -10,14 +10,16 @@
         <tr>
             <td>Description</td>
             <td>Date</td>
-            <td>Quantite</td>
+            <td>Siege</td>
+            <td>Rangée</td>
         </tr>
         
         ~ foreach ($achats as $achat) { ~
             <tr>
                 <td>~~$achat->get_match()->description~</td>
                 <td>~~$achat->get_match()->date~</td>
-                <td>~~$achat->qte~</td>
+                <td>~~$achat->siege~</td>
+                <td>~~$achat->rangee~</td>
             </tr>
         ~ } ~
 

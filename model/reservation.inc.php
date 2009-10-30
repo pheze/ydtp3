@@ -6,11 +6,13 @@ require_once 'match.inc.php';
 class Reservation extends Model {
     public $utilisateur;
 
-	public $match_id;
-	
-	public $qte;
+	public $id_match;
 	
 	public $expiration;
+
+	public $rangee;
+	
+	public $siege;
 
     public static function get($id) {
 		return parent::get(__CLASS__, $id);
@@ -21,7 +23,7 @@ class Reservation extends Model {
     }
     
     public function get_match() {
-        return Match::get($this->match_id);
+        return Match::get($this->id_match);
     }
 
 	public static function filter_by_user($id) {

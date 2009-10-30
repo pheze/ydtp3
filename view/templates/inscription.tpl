@@ -18,6 +18,10 @@
         </p>
         ~ } ~
 
+
+     todo: Ajax validation!
+
+
 <form id="inscription" action="" method="post">
     <fieldset class="form">
         <legend>Informations d'identification</legend>

@@ -5,6 +5,11 @@ require_once 'db.inc.php';
 abstract class Model {
 	public $id;
 	
+
+	private static function get_table_name($class) {
+		return 'tp3_' . strtolower($class) . 's';
+	}
+
 	// Construct a model object from an array of attributes.
 	protected static function load($class, $attr) {
 		$obj = new $class();
@@ -26,7 +31,7 @@ abstract class Model {
 	
 	// Return a model object matching the database row with the given id.
     public static function get($class, $id) {
-		$query = "SELECT * FROM " . strtolower($class) . "s WHERE id = $id;";
+		$query = "SELECT * FROM " . Model::get_table_name($class) . " WHERE id = $id;";
         $result = mysql_query($query);
 		if (!$result) {
 			return $result;
@@ -38,7 +43,7 @@ abstract class Model {
 
 	// Return an array of model objects matching the given condition.
 	protected static function filter($class, $where) {
-		$query = "SELECT * FROM " . strtolower($class) . "s" . ($where == "" ? "":" WHERE $where");
+		$query = "SELECT * FROM " . Model::get_table_name($class) . ($where == "" ? "":" WHERE $where");
 		$result = mysql_query($query);
 		if (!$result) {
 			return $result;
@@ -54,7 +59,7 @@ abstract class Model {
 	// Save the model object to the associated database row.
 	public function save() {
 		if (isset($this->id)) {
-			$query = "UPDATE " . strtolower(get_class($this)) . "s SET ";
+			$query = "UPDATE " . Model::get_table_name(get_class($this)) . " SET ";
 
 			foreach(get_object_vars($this) as $key => $val) {
 				if ($key == "id") {
@@ -76,7 +81,7 @@ abstract class Model {
 			mysql_query($query);
 		}
 		else {
-			$query = "INSERT INTO " . strtolower(get_class($this)) . "s ";
+			$query = "INSERT INTO " . Model::get_table_name(get_class($this)) . " ";
 			$v = '';
 			$n = '';
 			foreach(get_object_vars($this) as $key=>$val) {
@@ -108,13 +113,13 @@ abstract class Model {
 		if (!isset($this->id)) {
 			return;
 		}
-		$query = "DELETE FROM " . strtolower(get_class($this)) . "s WHERE id = $this->id;";
+		$query = "DELETE FROM " . Model::get_table_name(get_class($this)) . " WHERE id = $this->id;";
 	    $result = mysql_query($query);
 	}
 	
 	// Return a string representing this model object.
 	public function __tostring() {
-		return "&lt;model table=" . strtolower(get_class($this)) . " id=$this->id /&gt;";
+		return "&lt;model table=" . Model::get_table_name(get_class($this)) . " id=$this->id /&gt;";
 	}
 }
 

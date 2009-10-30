@@ -8,13 +8,6 @@ function generate_vars($section, &$vars) {
         return; 
     } 
     
-    //echo '--------<br>';
-    //foreach ($_POST as $x => $y) {
-    //    echo $x . ' -> ' . $y . '<br>';
-    // }
-    //echo '-------<br>';
-    
-    
     $arenas = Arena::find_all();
     $vars['arenas'] = $arenas; 
 
@@ -28,20 +21,23 @@ function generate_vars($section, &$vars) {
             }
 
             if ($arena->nom != $_POST['nom' . $i] || 
-                $arena->sieges != $_POST['sieges' . $i]) 
+                $arena->largeur != $_POST['largeur' . $i] || 
+		$arena->profondeur != $_POST['profondeur' . $i]) 
             {
                 $arena->nom = $_POST['nom' . $i];
-                $arena->sieges = $_POST['sieges' . $i];
+                $arena->largeur = $_POST['largeur' . $i];
+                $arena->profondeur = $_POST['profondeur' . $i];
                 $arena->save();
             }
         }
     }
 
 
-    if (!empty($_POST['nom-nouveau']) && !empty($_POST['sieges-nouveau'])) {
+    if (!empty($_POST['nom-nouveau']) && !empty($_POST['largeur-nouveau']) && !empty($_POST['profondeur-nouveau'])) {
         $arena = new Arena();
         $arena->nom = $_POST['nom-nouveau'];
-        $arena->sieges = $_POST['sieges-nouveau'];
+        $arena->largeur = $_POST['largeur-nouveau'];
+        $arena->profondeur = $_POST['profondeur-nouveau'];
         $arena->save();
     }
 

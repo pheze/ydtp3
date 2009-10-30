@@ -51,9 +51,6 @@ function generate_vars($section, &$vars) {
         $match->arena = $_POST['arena-nouveau'];
         $match->prix = $_POST['prix-nouveau'];
 
-        $arena = Arena::get($match->arena);
-        $match->places = $arena->sieges;
-
         $match->save();
 
     }

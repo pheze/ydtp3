@@ -5,7 +5,8 @@ require_once 'model.inc.php';
 class Arena extends Model  {
     public $nom;
 
-	public $sieges;
+	public $largeur;
+	public $profondeur;
 
     public static function get($id) {
 		return parent::get(__CLASS__, $id);
