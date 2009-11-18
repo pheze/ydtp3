@@ -4,13 +4,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Canadiens jusqu'au bout du monde</title>
-        <link rel="stylesheet" type="text/css" href="/view/css/master.css" />
-        <link rel="stylesheet" type="text/css" href="/view/css/~~$theme~" />
+        <link rel="stylesheet" type="text/css" href="../view/css/master.css" />
+        <link rel="stylesheet" type="text/css" href="../view/css/~~$theme~" />
     </head>
     <body>
         <div class="wrapper">
             <div class="header">
-                <div class="header-logo"><img src="/view/images/logo.jpg" alt="logo"/></div>
+                <div class="header-logo"><img src="../view/images/logo.jpg" alt="logo"/></div>
                 ~ if (!$is_logged) { ~
                 <div class="header-login">
                     <div class="header-login-form">
@@ -66,7 +66,7 @@
                 ~[/content]~
             </div>
             <div class="right">
-                <img src="/view/images/banner.gif" alt="banner" />
+                <img src="../view/images/banner.gif" alt="banner" />
             </div>
             <div class="footer">
                 <p>Copyright 1999-2009 par <a href="http://www.wix.com/Vechkin94/Poly-Habs">Poly-Habs</a>. Tous droits réservés.</p>

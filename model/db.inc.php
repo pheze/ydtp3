@@ -5,10 +5,15 @@
 // $dbuser = 'docouLOG4420';
 // $dbpass = '3NfU5PF4';
 
+// $dbname = 'canadiens';
+// $dbhost = 'localhost';
+// $dbuser = 'pheze';
+// $dbpass = '123456';
+
 $dbname = 'canadiens';
-$dbhost = 'localhost';
-$dbuser = 'pheze';
-$dbpass = '123456';
+$dbhost = '127.0.0.1';
+$dbuser = 'root';
+$dbpass = '';
 
 $link = mysql_connect($dbhost, $dbuser, $dbpass);
 if ($link == false) {
