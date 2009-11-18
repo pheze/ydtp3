@@ -107,6 +107,30 @@ h2 {
     border: 1px solid black;
 }
 
+.match-width {
+ min-width: 100px;
+}
+
+.match .siege_disponible {
+ background-color: green;
+}
+
+.match .siege_reserve_autre {
+ background-color: yellow;
+}
+
+.match .siege_reserve_moi {
+ background-color: purple;
+}
+
+.match .siege_achete_autre {
+ background-color: red;
+}
+
+.match .siege_achete_moi {
+ background-color: blue;
+}
+
 .content.index-content table td a {
     text-decoration:underline;
     color: black;

@@ -26,25 +26,17 @@ function get_siege_info($userid, $id_match, $i, $j) {
  return 'siege_disponible';
 }
 
-function generate_vars($section, &$vars) {
 
-    if (!isset($_GET['id'])) {
-        return;
-    }
+if (!isset($_GET['i']) || !isset($_GET['j']) || !isset($_GET['id']) || !isset($_GET['userid'])) {
+ echo 'err';
+ return;
+} 
 
-    $vars['match'] = Match::get($_GET['id']);
-    $vars['arena'] = $vars['match']->getArena();
-    
-    $classes = array();
-    for ($i = 0; $i < $vars['arena']->profondeur; $i++) {
-     $classes[$i] = array();
-     for ($j = 0; $j < $vars['arena']->largeur; $j++) {
-      $classes[$i][$j] = get_siege_info($vars['userid'], $_GET['id'], $i, $j);
-     }
-    }
+$i = $_GET['i'];
+$j = $_GET['j'];
+$id = $_GET['id'];
+$userid = $_GET['userid'];
 
-    $vars['classes'] = $classes;
-
-}
-
+echo get_siege_info($userid, $id, $i, $j);
 ?>
+

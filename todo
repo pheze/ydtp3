@@ -1,8 +1,6 @@
 Todo:
 
- - Ajax pour l'achat des billets
  - Ajax pour la validation du formulaire 
- - Sécurisé le site
- - S'assurer qu'il y ait une cohérence quand on efface un aréna (avec les matches, réservations et achats)
-
- - Tester avec IE
+ - Sécuriser le site
+ - S'assurer qu'il y ait une cohérence quand on efface un aréna (avec les matches, réservations et achats) (Pas nécessaire je crois) (dom)
+ - Tester avec IE (pas obligatoire je crois) (dom)

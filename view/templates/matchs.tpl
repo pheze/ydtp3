@@ -23,7 +23,7 @@
         <td>~~$x->date~</td>
         <td>~~$arena->nom~</td>
         <td>~~$x->prix~</td>
-        <td>~~(int)$arena->largeur * (int)$arena->profondeur~</td>
+        <td>~~$x->freePlaces()~</td>
     </tr>
     ~$color_counter++;~
 ~ } ~

@@ -26,8 +26,16 @@ class Reservation extends Model {
         return Match::get($this->id_match);
     }
 
-	public static function filter_by_user($id) {
+    public static function filter_by_user($id) {
 		return self::filter('utilisateur = ' . $id);
+    }
+
+    public static function filter_by_match($id_match) {
+        return self::filter('id_match = ' . $id_match);
+    }
+
+    public static function filter_by_match_rangee_siege($id_match, $rangee, $siege) {
+		return self::filter('id_match = ' . $id_match . ' and rangee = ' . $rangee . ' and siege = ' . $siege);
     }
 
     public static function find_all() {

@@ -35,16 +35,12 @@ function is_admin() {
 }
 
 function ajust_ticket_and_delete($reservation) {
-    //$match = Match::get($reservation->id_match);
-    //$new_places = $match->places + $reservation->qte;
-    //$match->places = $new_places;
-    //$match->save();
     $reservation->delete();
 }
 
 
 function clear_deprecated_reserved_matches() {
-    $MAX_TIME = 60 * 10; // 10 minute TODO TOCHANGE
+    $MAX_TIME = 60 * 5; // 5 mins
 
     foreach (Reservation::find_all() as $reservation) {
         $diff = time() - strtotime($reservation->expiration);

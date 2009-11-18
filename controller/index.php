@@ -10,7 +10,7 @@ clear_deprecated_reserved_matches();
 
 session_start();
 
-$sections = array('accueil', 'inscription', 'login', 'matchs', 'panier', 'achat', 'match_detail', 'signout', 'reservation_billet', 'confirmation_achat_billet', 'achat_billet', 'configuration', 'admin_matches', 'admin_arenas', 'admin');
+$sections = array('accueil', 'inscription', 'login', 'matchs', 'match_reserve_ajax', 'match_unreserve_ajax', 'panier', 'achat', 'match_detail', 'signout', 'achat_billet', 'configuration', 'admin_matches', 'admin_arenas', 'admin');
 
 $section = get($_GET, 'section', 'accueil');
 if ($section == 'accueil') {
