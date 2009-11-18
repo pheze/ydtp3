@@ -24,11 +24,11 @@ function removeErrors() {
 }
 
 // Ensure form is filled.
-function validateFormFilled(fields, data) {
+function validateFormFilled(fields, data, errors) {
   // Ensure all fields are filled.
   var filled = true;
   for (var i in fields) {
-    if (["masculin", "feminin"].indexOf(data[fields[i]]) == -1 && data[fields[i]].value == "") {
+    if (["masculin", "feminin", "accepte"].indexOf(data[fields[i]]) == -1 && data[fields[i]].value == "") {
       filled = false;
     }
   }
@@ -36,10 +36,40 @@ function validateFormFilled(fields, data) {
     filled = false;
   }
   if (filled == false) {
-    displayError("Veuillez remplir tout le formulaire.");
+    errors.push("Veuillez remplir tout le formulaire.");
   }
-  
-  return filled;
+}
+
+// Ensure "nom" and "prenom" fields are valid.
+function validateName(fields, data, errors) {
+  var re = /^[a-zA-Záéíóäëiöúàèììù_ ]{2,}$/;
+  if (!(re.test(data["nom"].value)) || !(re.test(data["prenom"].value))) {
+    errors.push("Les noms et prénoms doivent contenir uniquement des" +
+      " lettres, espaces, tirets et au minimum 2 caractères.");
+  }
+}
+
+// Ensure email is valid.
+function validateEmail(fields, data, errors) {
+  var re = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
+  if (!(re.test(data["courriel"].value))) {
+    errors.push("Courriel invalide.");
+  }
+}
+
+// Ensure username is valid.
+function validateUsername(fields, data, errors) {
+  if (!(/^[a-zA-Z0-9]{5,}$/.test(data["username"].value))) {
+    errors.push("Le nom d’utilisateur inclut des lettres sans accents et chiffres" +
+      " uniquement. Minimum 5 caractères.");
+  }
+}
+
+// Ensure user agrees with terms.
+function validateTerms(fields, data, errors) {
+  if (!data["accepte"].checked) {
+    errors.push("Vous devez être en accord avec les termes de la license.");
+  }
 }
 
 // Attach validation listener to the button.
@@ -47,23 +77,31 @@ function attachValidation() {
   var form = document.getElementById('inscription');
   
   form.onsubmit = function () {
-    removeErrors();
-    
     // Fields to validate.
     var fields =  [ "username", "password", "prenom", "nom", "courriel",
       "jour", "mois", "annee", "masculin", "feminin", "theme", "accepte"];
-      
-    var isFormValid = true;
-    
+
     // data contains the dom objects associated with each field.
     var data = {};
     for (var i in fields) {
       data[fields[i]] = document.getElementById(fields[i]);
     }
     
-    isFormValid &= validateFormFilled(fields, data);
+    // Pass the data to a list of validators.
+    var errors = [];
+    var validators = [ validateFormFilled, validateName, validateUsername, validateTerms,
+      validateEmail ];
+    for (var i = 0; i < validators.length; i++) {
+      validators[i](fields, data, errors);
+    }
     
-    if (!isFormValid) {
+    if (errors) {
+      // Display errors
+      removeErrors();
+      for (var i = 0; i < errors.length; i++) {
+        displayError(errors[i]);
+      }
+      // Stop submission of form.
       return false;
     }
   };
