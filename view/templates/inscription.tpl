@@ -1,4 +1,7 @@
 ~:extend('base')~
+~[scripts]~
+<script type="text/javascript" src="../view/js/inscription.js"></script>
+~[/scripts]~
 ~[content]~
 
 ~ if ($is_logged && !isset($contains_errors)) { ~
@@ -7,21 +10,11 @@
     ~ if ($page_type != 'normal' && !$contains_errors) { ~
         Vous êtes maintenant inscris.
     ~ } else { ~
-        <p class='inscription_error'>
-        ~ if ($contains_errors) { ~
-            Il y a des erreurs dans le formulaire : <br>
-            <ul>
-            ~foreach ($errors as $e) { ~
-                <li>~~$e~</li>
-            ~ } ~
-            </ul>
-        </p>
-        ~ } ~
-
-
-     todo: Ajax validation!
-
-
+<div id="inscription_error" class='inscription_error' style="display: none;">
+    <p>Il y a des erreurs dans le formulaire:</p>
+    <ul id="error_list">
+    </ul>
+</div>
 <form id="inscription" action="" method="post">
     <fieldset class="form">
         <legend>Informations d'identification</legend>
@@ -210,7 +203,7 @@
         </span>
         <span><label for="accepte" class="row">Termes</label><input type="checkbox" id="accepte" name="accepte" /><label>J'accepte les termes de la license</label></span>
     </fieldset>
-    <p><input type="submit" value="J’accepte" class="button"/><input type="reset" value="Réinitialiser" class="button"/></p>
+    <p><input id="send" type="submit" value="J’accepte" class="button"/><input type="reset" value="Réinitialiser" class="button"/></p>
 </form>
  ~ } ~
 ~ } ~

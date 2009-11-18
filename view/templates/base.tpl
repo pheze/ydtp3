@@ -6,6 +6,8 @@
         <title>Canadiens jusqu'au bout du monde</title>
         <link rel="stylesheet" type="text/css" href="../view/css/master.css" />
         <link rel="stylesheet" type="text/css" href="../view/css/~~$theme~" />
+		~[scripts]~
+        ~[/scripts]~
     </head>
     <body>
         <div class="wrapper">
